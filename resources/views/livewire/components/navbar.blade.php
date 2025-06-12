@@ -1,14 +1,15 @@
 <nav class="bg-red-50 mx-auto px-4">
     <div class="flex justify-between items-center mx-auto max-w-screen p-2 gap-x-4">
 
-        <div class="flex items-center gap-x-3">
+        <div class="flex items-center gap-x-6">
             <a href="{{ route('home') }}" wire:navigate class="flex items-center gap-x-1">
                 <img src="{{ asset('asset/logos/shopper.svg') }}" class="h-8" alt="Shopper Brand Logo">
-                <label class="font-poppins font-medium text-[20px] text-[#0A8048] -ml-1">SHOPPER</label>
+                <span class="font-poppins font-medium text-[20px] text-[#0A8048]">SHOPPER</span>
             </a>
-            <div class="flex items-center">
-                <span class="text-sm font-medium whitespace-nowrap">Categories</span>
-            </div>
+        </div>
+
+        <div class="flex items-center">
+            <span class="text-sm font-medium whitespace-nowrap">Categories</span>
         </div>
 
         <div class="flex-1 max-w-xl">
