@@ -1,5 +1,5 @@
-<nav class="bg-white border-b border-gray-200"> <div class="flex justify-between items-center mx-auto max-w-7xl px-0 py-3 gap-x-4">
-
+<nav class="bg-white border-b border-gray-200 fixed top-0 w-full z-999"> 
+    <div class="flex justify-between items-center mx-auto max-w-7xl px-0 py-3 gap-x-4">
         <div class="flex items-center">
             <a href="{{ route('home') }}" wire:navigate class="flex items-center gap-x-2">
                 <img src="{{ asset('asset/logos/shopper.svg') }}" class="h-8" alt="Shopper Brand Logo">

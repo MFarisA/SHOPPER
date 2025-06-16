@@ -1,4 +1,4 @@
-<div class="">
+<div class=" mt-20">
     <div>
         <livewire:components.carousel/>
     </div>
@@ -37,9 +37,12 @@
             </div>
         </div>
     </div>
-    <div class="mt-6 max-w-screen-xl mx-auto">
+    <div class="mt-10 max-w-screen-xl mx-auto">
         <span class="font-poppins text-2xl font-medium">
             Headphone For You
         </span>
+    </div>
+    <div class="mt-5 max-w-screen-xl mx-auto">
+        <livewire:components.PublicItemList/>
     </div>
 </div>
