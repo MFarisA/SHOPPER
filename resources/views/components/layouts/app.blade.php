@@ -15,6 +15,7 @@
     <body>
         <livewire:components.navbar>
         {{ $slot }}
+        <livewire:components.footer>
         @livewireScripts
         @stack('scripts')
     </body>

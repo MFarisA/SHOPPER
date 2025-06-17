@@ -1,17 +1,17 @@
 <nav class="bg-white border-b border-gray-200 fixed top-0 w-full z-999"> 
     <div class="flex justify-between items-center mx-auto max-w-7xl px-0 py-3 gap-x-4">
         <div class="flex items-center">
-            <a href="{{ route('home') }}" wire:navigate class="flex items-center gap-x-2">
+            <a href="{{ route('home') }}" wire:navigate class="flex items-center">
                 <img src="{{ asset('asset/logos/shopper.svg') }}" class="h-8" alt="Shopper Brand Logo">
                 <span class="font-poppins font-bold text-xl text-[#0A8048]">SHOPPER</span>
             </a>
         </div>
 
         <ul class="hidden md:flex items-center gap-7">
-            <li><a href="#" class="text-sm font-medium text-gray-600 hover:text-gray-900">Categories</a></li>
-            <li><a href="#" class="text-sm font-medium text-gray-600 hover:text-gray-900">Deals</a></li>
-            <li><a href="#" class="text-sm font-medium text-gray-600 hover:text-gray-900">What's New</a></li>
-            <li><a href="#" class="text-sm font-medium text-gray-600 hover:text-gray-900">Delivery</a></li>
+            <li><a href="{{ route('categori') }}" wire:navigate.prefetch class="text-sm font-medium text-gray-600 hover:text-gray-900">Categories</a></li>
+            <li><a href="#" wire:navigate.prefetch class="text-sm font-medium text-gray-600 hover:text-gray-900">Deals</a></li>
+            <li><a href="#" wire:navigate.prefetch class="text-sm font-medium text-gray-600 hover:text-gray-900">What's New</a></li>
+            <li><a href="#" wire:navigate.prefetch class="text-sm font-medium text-gray-600 hover:text-gray-900">Delivery</a></li>
         </ul>
 
         <div class="flex-1 max-w-full">
@@ -27,13 +27,13 @@
         </div>
 
         <div class="flex items-center ml-2 gap-x-5">
-            <a href="#" class="text-gray-500 hover:text-gray-900">
+            <a href="#" wire:navigate.prefetch class="text-gray-500 hover:text-gray-900">
                 <x-untitledui-mail class="h-6 w-6"/>
             </a>
-            <a href="#" class="text-gray-500 hover:text-gray-900">
+            <a href="#" wire:navigate.prefetch class="text-gray-500 hover:text-gray-900">
                 <x-heroicon-o-shopping-cart class="h-6 w-6"/>
             </a>
-            <a href="#" class="flex items-center">
+            <a href="#" wire:navigate.prefetch class="flex items-center">
                 <img src="{{ asset('asset/pluto.png') }}" class="rounded-full size-9 cursor-pointer">
             </a>
         </div>

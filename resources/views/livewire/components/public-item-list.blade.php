@@ -29,7 +29,12 @@
                 </div>
                 <div class="flex items-center gap-x-2">
                     <div class="flex gap-2 mt-2">
-                        <x-heroicon-s-star class="size-4 text-[#FFC403]"/>
+                        <span class="relative inline-block">
+                            <span class="absolute inset-0 overflow-hidden" style="width: 50%;">
+                                <x-heroicon-s-star class="size-4 text-[#FFC403]"/>
+                            </span>
+                            <x-heroicon-s-star class="size-4 text-gray-300"/>
+                        </span>
                         <p class="text-xs font-medium">4.9</p>
                         <p class="text-xs font-medium">250+ sold</p>
                     </div>
