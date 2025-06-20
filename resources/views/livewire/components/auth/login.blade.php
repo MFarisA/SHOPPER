@@ -59,16 +59,33 @@
                         <flux:button type="submit"
                             class="w-full flex justify-center px-4 py-2.5 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700"
                             color="red">
-                            Submit
+                            Log In
                             <div wire:loading wire:target="login"
                                 class="inline-block animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white ml-3">
                             </div>
                         </flux:button>
 
+                        <div class="relative flex items-center">
+                            <div class="flex-grow border-t border-gray-200"></div>
+                            <span class="flex-shrink mx-4 text-sm font-medium text-gray-400">OR</span>
+                            <div class="flex-grow border-t border-gray-200"></div>
+                        </div>
+
                         <flux:button type="button" wire:click="closeModal"
                             class="w-full flex justify-center px-4 py-2.5 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-gray-200">
-                            Cancel
+                            <flux:brand logo="{{ asset('asset/logos/google.svg') }}" class="size-2"></flux:brand>
+                            {{-- <flux:text class="">Continue with Google</flux:text> --}}
                         </flux:button>
+
+                        <div class="flex text-center justify-center">
+                            <flux:text class="text-sm text-gray-600">
+                                Don't have an account?
+                                <flux:link href="#" wire:click="openRegisterModal"
+                                    class="text-indigo-600 hover:text-indigo-500">
+                                    Register
+                                </flux:link>
+                            </flux:text>
+                        </div>
                     </div>
                 </form>
             </div>
