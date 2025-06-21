@@ -64,10 +64,10 @@
 
                 @guest
                     <div class="flex items-center gap-x-2">
-                        <button x-data x-on:click="$dispatch('open-login-modal')"
-                            class="px-4 py-2 font-poppins text-sm font-medium text-gray-600  border border-[#0A8048] hover:bg-[#0A8048] hover:text-white rounded-lg cursor-pointer">
+                        <flux:button x-data x-on:click="$dispatch('open-login-modal')"
+                            class="px-4 py-2 font-poppins text-sm font-medium text-gray-600  border border-[#0A8048] hover:bg-[#0A8048]! hover:text-white rounded-lg cursor-pointer">
                             Login
-                        </button>
+                        </flux:button>
                         <a href="{{ route('register') }}" class="px-4 font-poppins cursor-pointer py-2 text-sm font-medium text-white bg-[#0A8048] rounded-lg hover:bg-[#0A8048]/90">
                             Register
                         </a>

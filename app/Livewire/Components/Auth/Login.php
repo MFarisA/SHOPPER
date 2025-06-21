@@ -17,7 +17,6 @@ class Login extends Component
     
     public $showModal = false;
 
-    // [LANGKAH 1.A] Tambahkan properti untuk melacak status password
     public bool $showPassword = false;
     
     #[On('open-login-modal')]
@@ -26,7 +25,7 @@ class Login extends Component
         $this->showModal = true;
         $this->reset(['email', 'password']);
         $this->resetErrorBag();
-        $this->showPassword = false; // Reset saat modal dibuka
+        $this->showPassword = false;
     }
 
     public function closeModal()
@@ -34,7 +33,6 @@ class Login extends Component
         $this->showModal = false;
     }
 
-    // [LANGKAH 1.B] Tambahkan metode untuk mengubah status show/hide password
     public function togglePasswordVisibility()
     {
         $this->showPassword = !$this->showPassword;
@@ -42,7 +40,6 @@ class Login extends Component
 
     public function login()
     {
-        // ... (logika login Anda tetap sama)
         $credentials = $this->validate();
 
         if (Auth::attempt($credentials)) {

@@ -57,7 +57,7 @@
 
                     <div class="w-full pt-6 space-y-3">
                         <flux:button type="submit"
-                            class="w-full flex justify-center px-4 py-2.5 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700"
+                            class="w-full flex justify-center px-4 py-2.5 border-[#0A8048] hover:bg-[#0A8048]! hover:text-white! bg-gray-200 text-white font-semibold rounded-lg"
                             color="red">
                             Log In
                             <div wire:loading wire:target="login"
@@ -72,16 +72,20 @@
                         </div>
 
                         <flux:button type="button" wire:click="closeModal"
-                            class="w-full flex justify-center px-4 py-2.5 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-gray-200">
-                            <flux:brand logo="{{ asset('asset/logos/google.svg') }}" class="size-2"></flux:brand>
-                            {{-- <flux:text class="">Continue with Google</flux:text> --}}
+                            class="w-full flex justify-center px-4 py-2.5 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-gray-200 hover:border-[#0A8048]! hover:text-[#0A8048]">
+                            <div class="flex items-center gap-x-2">
+                                <flux:brand logo="{{ asset('asset/logos/google.svg') }}" class="size-2"></flux:brand>
+                                <flux:text class="">
+                                    Continue with Google
+                                </flux:text>
+                            </div>
                         </flux:button>
 
                         <div class="flex text-center justify-center">
                             <flux:text class="text-sm text-gray-600">
                                 Don't have an account?
-                                <flux:link href="#" wire:click="openRegisterModal"
-                                    class="text-indigo-600 hover:text-indigo-500">
+                                <flux:link href="#" wire:click="openRegisterModal" variant="subtle"
+                                    class="text-gray-500 hover:text-[#0A8048]!">
                                     Register
                                 </flux:link>
                             </flux:text>
