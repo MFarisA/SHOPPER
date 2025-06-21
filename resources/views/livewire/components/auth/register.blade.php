@@ -38,6 +38,12 @@
                     </div>
 
                     <div>
+                        <flux:label for="number" class="block text-sm font-medium text-gray-700">Phone Number</flux:label>
+                        <input type="number" id="number" name="number" placeholder="08123456789"
+                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+
+                    <div>
                         <flux:label for="password" class="block text-sm font-medium text-gray-700">Password</flux:label>
                         <input type="password" id="password" name="password" placeholder="••••••••"
                             class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
