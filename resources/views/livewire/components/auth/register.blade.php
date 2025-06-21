@@ -25,36 +25,38 @@
 
                 <form class="mt-8 space-y-5">
                     <div>
-                        <flux:label for="name" class="block text-sm font-medium text-gray-700">Full Name
+                        <flux:label for="name" class="block text-sm font-medium text-gray-700">
+                            Full Name
                         </flux:label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name"
-                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <flux:input type="text" id="name" name="name" placeholder="Enter your full name" class=""/>
                     </div>
 
                     <div>
-                        <flux:label for="email" class="block text-sm font-medium text-gray-700">Email</flux:label>
-                        <input type="email" id="email" name="email" placeholder="alex.jordan@gmail.com"
-                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <flux:label for="email" class="block text-sm font-medium text-gray-700">
+                            Email
+                        </flux:label>
+                        <flux:input type="email" id="email" name="email" placeholder="alex.jordan@gmail.com" class="" />
                     </div>
 
                     <div>
-                        <flux:label for="number" class="block text-sm font-medium text-gray-700">Phone Number</flux:label>
-                        <input type="number" id="number" name="number" placeholder="08123456789"
-                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <flux:label for="number" class="block text-sm font-medium text-gray-700">
+                            Phone Number
+                        </flux:label>
+                        <flux:input type="number" id="number" name="number" placeholder="08123456789" class="" />
                     </div>
 
                     <div>
-                        <flux:label for="password" class="block text-sm font-medium text-gray-700">Password</flux:label>
-                        <input type="password" id="password" name="password" placeholder="••••••••"
-                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <flux:label for="password" class="block text-sm font-medium text-gray-700">
+                            Password
+                        </flux:label>
+                        <flux:input type="password" id="password" name="password" placeholder="••••••••" class="" />
                     </div>
 
                     <div>
-                        <flux:label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm
-                            Password</flux:label>
-                        <input type="password" id="password_confirmation" name="password_confirmation"
-                            placeholder="••••••••"
-                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <flux:label for="password_confirmation" class="block text-sm font-medium text-gray-700">
+                            ConfirmPassword
+                        </flux:label>
+                        <flux:input type="password" id="password_confirmation" name="password_confirmation"placeholder="••••••••" class=""/>
                     </div>
 
                     <div class="pt-2">
@@ -75,8 +77,7 @@
                     <div class="flex-grow border-t border-gray-300"></div>
                 </div>
 
-                <flux:button type="button" wire:click="closeModal"
-                    class="w-full flex justify-center px-4 py-2.5 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-gray-200 hover:border-[#0A8048]! hover:text-[#0A8048]">
+                <flux:button type="button" class="w-full flex justify-center px-4 py-2.5 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-gray-200 hover:border-[#0A8048]! hover:text-[#0A8048]">
                     <div class="flex items-center gap-x-2">
                         <flux:brand logo="{{ asset('asset/logos/google.svg') }}" class="size-2"></flux:brand>
                         <flux:text class="">
@@ -85,12 +86,12 @@
                     </div>
                 </flux:button>
 
-                <p class="mt-8 text-center text-sm text-gray-600">
+                <flux:text class="mt-8 text-center text-sm text-gray-600">
                     Already have an account?
-                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">
+                    <flux:link href="#" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">
                         Sign in
-                    </a>
-                </p>
+                    </flux:link>
+                </flux:text>
 
             </div>
         </div>
