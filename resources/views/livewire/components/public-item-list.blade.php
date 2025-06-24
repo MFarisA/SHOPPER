@@ -1,50 +1,45 @@
-@php
-    // Data dummy untuk contoh
-    $products = [
-        ['name' => 'Wireless Earbuds', 'description' => 'High-fidelity sound'],
-        ['name' => 'Gaming Mouse', 'description' => 'RGB with 16000 DPI'],
-        ['name' => 'Mechanical Keyboard', 'description' => 'Blue Switches'],
-        ['name' => '4K Webcam', 'description' => 'Clear video for streaming'],
-        ['name' => 'Ultrawide Monitor', 'description' => '34-inch immersive display'],
-        ['name' => 'Wireless Earbuds', 'description' => 'High-fidelity sound'],
-        ['name' => 'Gaming Mouse', 'description' => 'RGB with 16000 DPI'],
-        ['name' => 'Mechanical Keyboard', 'description' => 'Blue Switches'],
-        ['name' => '4K Webcam', 'description' => 'Clear video for streaming'],
-        ['name' => 'Ultrawide Monitor', 'description' => '34-inch immersive display'],
-        ['name' => '4K Webcam', 'description' => 'Clear video for streaming'],
-        ['name' => 'Ultrawide Monitor', 'description' => '34-inch immersive display'],
-    ];
-@endphp
-
-<div class="grid grid-cols-[repeat(auto-fit,minmax(308px,1fr))] gap-4">
-
-    @foreach ($products as $product)
-        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
-            <img src="{{ asset('asset/pluto.png') }}" alt="{{ $product['name'] }}" class="w-full aspect-square object-cover">
-            
-            <div class="p-4">
-                <div class="flex items-center justify-between">
-                    <p class="text-lg font-poppins font-medium text-gray-800">{{ $product['name'] }}</p>
-                    <p>lala</p>
-                </div>
-                <div class="flex items-center gap-x-2">
-                    <div class="flex gap-2 mt-2">
-                        <span class="relative inline-block">
-                            <span class="absolute inset-0 overflow-hidden" style="width: 50%;">
-                                <x-heroicon-s-star class="size-4 text-[#FFC403]"/>
-                            </span>
-                            <x-heroicon-s-star class="size-4 text-gray-300"/>
-                        </span>
-                        <p class="text-xs font-medium">4.9</p>
-                        <p class="text-xs font-medium">250+ sold</p>
+<div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-4">
+        @foreach ($items as $item)
+            <a href="{{ route('item.show', ['slug' => $item->slug]) }}"
+               class="block bg-white border border-gray-200 rounded-lg overflow-hidden  flex-col hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                
+                <img src="{{ asset('asset/pluto.png') }}" alt="{{ $item->name }}" class="w-full aspect-square object-cover">
+                
+                <div class="p-4 flex-grow flex flex-col">
+                    <div>
+                        <p class="text-sm font-poppins font-medium text-gray-800 line-clamp-2">{{ $item->name }}</p>
+                    </div>
+                    <div class="mt-2 flex items-center justify-between text-xs font-medium">
+                        <div class="flex items-center gap-x-1">
+                            <x-heroicon-s-star class="size-4 text-[#FFC403]"/>
+                            <p>{{ $item->rating }}</p>
+                            <span class="text-gray-300">|</span>
+                            <p>Terjual {{ $item->sold }}</p>
+                        </div>
+                    </div>
+                    <div class="mt-auto pt-2 flex items-center gap-x-2">
+                        <x-heroicon-s-shopping-bag class="size-4 text-[#0A8048]"/>
+                        <p class="text-xs font-medium">{{ $item->store }}</p>
                     </div>
                 </div>
-                <div class="mt-2 flex items-center gap-x-2">
-                    <x-heroicon-s-shopping-bag class="size-4 text-[#0A8048]"/>
-                    <p class="text-xs font-medium">jojo store</p>
-                </div>
-            </div>
-        </div>
-    @endforeach
+            </a>
+        @endforeach
+    </div>
 
+    @if ($hasMorePages)
+        <div class="mt-8 flex items-center justify-center">
+            <flux:button
+                wire:click="loadMore"
+                wire:loading.attr="disabled"
+                class="w-48 border border-[#0A8048]! hover:bg-[#0A8048]! disabled:opacity-75 disabled:cursor-wait">
+                <flux:text wire:loading wire:target="loadMore">
+                    Memuat...
+                </flux:text>
+                <flux:text wire:loading.remove wire:target="loadMore" class="text-black hover:text-white">
+                    Tampilkan Lebih Banyak
+                </flux:text>
+            </flux:button>
+        </div>
+    @endif
 </div>
