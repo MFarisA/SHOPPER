@@ -1,4 +1,4 @@
-<div>
+<div class="mt-10">
     <div class="container mx-auto px-4 py-12">
         @if ($product)
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -10,7 +10,7 @@
                     
                     <div class="mt-3 flex items-center gap-x-4 text-sm">
                         <div class="flex items-center gap-x-1">
-                            <span class="text-gray-500">Terjual x</span>
+                            <span class="text-gray-500">Terjual</span>
                             <span class="font-semibold text-gray-700">{{ $product->sold }}</span>
                         </div>
                         <span class="text-gray-300">|</span>
