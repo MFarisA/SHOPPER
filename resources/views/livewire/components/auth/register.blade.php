@@ -23,50 +23,37 @@
 
                 <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">Create an account</h1>
 
-                <form class="mt-8 space-y-5">
+                 <form action="{{ route('auth.register') }}" method="POST" class="mt-8 space-y-5">
+                    @csrf
+
                     <div>
-                        <flux:label for="name" class="block text-sm font-medium text-gray-700">
-                            Full Name
-                        </flux:label>
-                        <flux:input type="text" id="name" name="name" placeholder="Enter your full name" class=""/>
+                        <flux:label for="name">Full Name</flux:label>
+                        <flux:input id="name" name="name" type="text" placeholder="Enter your full name" value="{{ old('name') }}" />
+                        @error('name') <span class="text-sm text-red-500 mt-1">{{ $message }}</span> @enderror
                     </div>
 
                     <div>
-                        <flux:label for="email" class="block text-sm font-medium text-gray-700">
-                            Email
-                        </flux:label>
-                        <flux:input type="email" id="email" name="email" placeholder="alex.jordan@gmail.com" class="" />
+                        <flux:label for="email">Email</flux:label>
+                        <flux:input id="email" name="email" type="email" placeholder="alex.jordan@gmail.com" value="{{ old('email') }}" />
+                        @error('email') <span class="text-sm text-red-500 mt-1">{{ $message }}</span> @enderror
                     </div>
 
                     <div>
-                        <flux:label for="number" class="block text-sm font-medium text-gray-700">
-                            Phone Number
-                        </flux:label>
-                        <flux:input type="number" id="number" name="number" placeholder="08123456789" class="" />
+                        <flux:label for="password">Password</flux:label>
+                        <flux:input id="password" name="password" type="password" placeholder="••••••••" />
+                        @error('password') <span class="text-sm text-red-500 mt-1">{{ $message }}</span> @enderror
                     </div>
-
+                    
                     <div>
-                        <flux:label for="password" class="block text-sm font-medium text-gray-700">
-                            Password
-                        </flux:label>
-                        <flux:input type="password" id="password" name="password" placeholder="••••••••" class="" />
-                    </div>
-
-                    <div>
-                        <flux:label for="password_confirmation" class="block text-sm font-medium text-gray-700">
-                            ConfirmPassword
-                        </flux:label>
-                        <flux:input type="password" id="password_confirmation" name="password_confirmation"placeholder="••••••••" class=""/>
+                        <flux:label for="password_confirmation">Confirm Password</flux:label>
+                        <flux:input id="password_confirmation" name="password_confirmation" type="password" placeholder="••••••••" />
                     </div>
 
                     <div class="pt-2">
                         <flux:button type="submit"
-                            class="w-full flex justify-center px-4 py-2.5 border-[#0A8048] hover:bg-[#0A8048]! hover:text-white! bg-gray-200 text-white font-semibold rounded-lg"
+                            class="cursor-pointer w-full flex justify-center px-4 py-2.5 border-[#0A8048] hover:bg-[#0A8048]! hover:text-white! bg-gray-200 text-white font-semibold rounded-lg"
                             color="red">
                             Register
-                            <div wire:loading wire:target="login"
-                                class="inline-block animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white ml-3">
-                            </div>
                         </flux:button>
                     </div>
                 </form>
@@ -76,19 +63,15 @@
                     <span class="mx-4 flex-shrink text-sm text-gray-500">OR</span>
                     <div class="flex-grow border-t border-gray-300"></div>
                 </div>
-
-                <flux:button type="button" class="w-full flex justify-center px-4 py-2.5 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-gray-200 hover:border-[#0A8048]! hover:text-[#0A8048]">
+                <flux:button type="button" class="w-full cursor-pointer flex justify-center px-4 py-2.5 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-gray-200 hover:border-[#0A8048]! hover:text-[#0A8048]">
                     <div class="flex items-center gap-x-2">
                         <flux:brand logo="{{ asset('asset/logos/google.svg') }}" class="size-2"></flux:brand>
-                        <flux:text class="">
-                            Continue with Google
-                        </flux:text>
+                        <flux:text class="">Continue with Google</flux:text>
                     </div>
                 </flux:button>
-
                 <flux:text class="mt-8 text-center text-sm text-gray-600">
                     Already have an account?
-                    <flux:link href="#" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline">
+                    <flux:link href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500 hover:underline cursor-pointer">
                         Sign in
                     </flux:link>
                 </flux:text>

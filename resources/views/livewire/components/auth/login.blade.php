@@ -5,8 +5,8 @@
 
             <div class="bg-white rounded-lg p-6 sm:p-8 w-full max-w-md mx-4" @click.stop>
 
-                <form wire:submit="login" class="flex flex-col items-center gap-y-4">
-
+                <form action="{{ route('auth.login') }}" method="POST" class="flex flex-col items-center gap-y-4">
+                    @csrf
                     <div class="bg-gray-100 rounded-full h-14 w-14 flex items-center justify-center overflow-hidden">
                         <flux:brand logo="{{ asset('asset/logos/shopper.svg') }}" class="size-3 object-contain" />
                     </div>
@@ -19,8 +19,8 @@
                         <div>
                             <flux:label for="email">Email</flux:label>
                             <div class="mt-1">
-                                <flux:input type="email" id="email" wire:model="email"
-                                    placeholder="you@example.com" class="w-full" />
+                                <flux:input type="email" id="email" name="email" 
+                                    placeholder="you@example.com" class="w-full" value="{{ old('email') }}" />
                                 @error('email')
                                     <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                                 @enderror
@@ -35,7 +35,7 @@
                             <div class="mt-1 relative">
 
                                 <flux:input type="{{ $showPassword ? 'text' : 'password' }}" id="password"
-                                    wire:model="password" placeholder="**********" class="w-full" />
+                                    name="password" placeholder="**********" class="w-full" />
 
                                 <div wire:click="togglePasswordVisibility"
                                     class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
@@ -57,12 +57,9 @@
 
                     <div class="w-full pt-6 space-y-3">
                         <flux:button type="submit"
-                            class="w-full flex justify-center px-4 py-2.5 border-[#0A8048] hover:bg-[#0A8048]! hover:text-white! bg-gray-200 text-white font-semibold rounded-lg"
+                            class="w-full cursor-pointer flex justify-center px-4 py-2.5 border-[#0A8048] hover:bg-[#0A8048]! hover:text-white! bg-gray-200 text-white font-semibold rounded-lg"
                             color="red">
                             Log In
-                            <div wire:loading wire:target="login"
-                                class="inline-block animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white ml-3">
-                            </div>
                         </flux:button>
 
                         <div class="relative flex items-center">
@@ -72,7 +69,7 @@
                         </div>
 
                         <flux:button type="button" wire:click="closeModal"
-                            class="w-full flex justify-center px-4 py-2.5 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-gray-200 hover:border-[#0A8048]! hover:text-[#0A8048]">
+                            class="w-full flex cursor-pointer justify-center px-4 py-2.5 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-gray-200 hover:border-[#0A8048]! hover:text-[#0A8048]">
                             <div class="flex items-center gap-x-2">
                                 <flux:brand logo="{{ asset('asset/logos/google.svg') }}" class="size-2"></flux:brand>
                                 <flux:text class="">

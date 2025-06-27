@@ -13,6 +13,7 @@
         "blade-ui-kit/blade-heroicons": "^2.6",
         "hasnayeen/blade-eva-icons": "^2.1",
         "laravel/framework": "^12.0",
+        "laravel/socialite": "^5.21",
         "laravel/tinker": "^2.10.1",
         "livewire/flux": "^2.2",
         "livewire/livewire": "^3.6",
