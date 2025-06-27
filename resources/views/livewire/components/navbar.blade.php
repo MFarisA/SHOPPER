@@ -22,12 +22,24 @@
 
         <div class="flex items-center gap-x-5">
             <ul class="hidden md:flex items-center gap-x-5">
-                <li><a href="{{ route('categori') }}" wire:navigate.prefetch
-                        class="text-sm font-medium text-gray-600 hover:text-gray-900">Categories</a></li>
-                <li><a href="#" wire:navigate.prefetch
-                        class="text-sm font-medium text-gray-600 hover:text-gray-900">Deals</a></li>
-                <li><a href="#" wire:navigate.prefetch
-                        class="text-sm font-medium text-gray-600 hover:text-gray-900">What's New</a></li>
+                <li>
+                    <a href="{{ route('categori') }}" wire:navigate.prefetch
+                        class="text-sm font-medium text-gray-600 hover:text-gray-900">
+                        Categories
+                    </a>
+                </li>
+                <li>
+                    <a href="#" wire:navigate.prefetch
+                        class="text-sm font-medium text-gray-600 hover:text-gray-900">
+                        Deals
+                    </a>
+                </li>
+                <li>
+                    <a href="#" wire:navigate.prefetch
+                        class="text-sm font-medium text-gray-600 hover:text-gray-900">
+                        What's New
+                    </a>
+                </li>
             </ul>
 
             <div class="hidden md:block h-6 w-px bg-gray-200"></div>
@@ -49,6 +61,7 @@
                              </a>
                              <div x-show="open" x-transition class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
                                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profil</a>
+                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Toko</a>
                                  <form method="POST" action="{{ route('logout') }}">
                                      @csrf
                                      <a href="{{ route('logout') }}"

@@ -6,6 +6,7 @@
         @livewireStyles
         @stack('styles')
         {{-- @fluxAppearance --}}
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <title>{{ $title ?? 'Page Title' }}</title>
         <link rel="icon" href="{{asset('/asset/logos/shopper.svg')}}">
