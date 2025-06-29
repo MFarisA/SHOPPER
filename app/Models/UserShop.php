@@ -59,8 +59,68 @@ class UserShop extends Model
         'twitter',
     ];
 
+    protected $casts = [
+        'verified_at' => 'datetime',
+        'is_verified' => 'boolean',
+        'is_featured' => 'boolean',
+        'latitude' => 'decimal:8',
+        'longitude' => 'decimal:8',
+        'shipping_methods' => 'array',
+        'payment_methods' => 'array',
+        'working_days' => 'array',
+        'opening_time' => 'datetime:H:i',
+        'closing_time' => 'datetime:H:i',
+        'rating' => 'decimal:2',
+        'address_updated_at' => 'datetime',
+    ];
+
+    // Relationships
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function discounts()
+    {
+        return $this->hasMany(Discount::class, 'shop_id');
+    }
+
+    // Scopes
+    public function scopeActive($query)
+    {
+        return $query->where('status', 'active');
+    }
+
+    public function scopeVerified($query)
+    {
+        return $query->where('is_verified', true);
+    }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('is_featured', true);
+    }
+
+    // Helper methods
+    public function isActive(): bool
+    {
+        return $this->status === 'active';
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->is_verified;
+    }
+
+    public function getStatusBadgeAttribute(): string
+    {
+        $badges = [
+            'pending' => 'warning',
+            'active' => 'success',
+            'suspended' => 'danger',
+            'closed' => 'secondary',
+        ];
+
+        return $badges[$this->status] ?? 'secondary';
     }
 }
