@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -15,6 +14,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone_number'
     ];
 
     protected $hidden = [
@@ -31,13 +31,14 @@ class User extends Authenticatable
     }
 
     public static $authLogin = [
-        'email' => 'required|string|email',
-        'password' => 'required|string|min:8',
+        'email' => 'required|email',
+        'password' => 'required|string',
     ];
 
     public static $authRegister = [
         'name' => 'required|string|max:255',
         'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:8|confirmed',
+        'password' => 'required|string|min:8|confirmed|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@!]).+$/',
+        'phone_number' => 'required|string|max:20',
     ];
 }
