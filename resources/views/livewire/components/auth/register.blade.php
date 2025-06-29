@@ -117,13 +117,12 @@
                     <div class="flex-grow border-t border-gray-300"></div>
                 </div>
                 <flux:button type="button"
+                 onclick="window.location.href='{{ route('social.login', 'google') }}'"
                     class="w-full cursor-pointer flex justify-center px-4 py-2.5 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-gray-200 hover:border-[#0A8048]! hover:text-[#0A8048]">
-                    <flux:link href="{{ route('social.login', 'google') }}">
-                        <div class="flex items-center gap-x-2">
+                    <div class="flex items-center gap-x-2">
                         <flux:brand logo="{{ asset('asset/logos/google.svg') }}" class="size-2"></flux:brand>
                         <flux:text class="">Continue with Google</flux:text>
                     </div>
-                    </flux:link>
                 </flux:button>
                 <flux:text class="mt-8 text-center text-sm text-gray-600">
                     Already have an account?

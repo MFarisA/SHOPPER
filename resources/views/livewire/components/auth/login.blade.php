@@ -1,7 +1,7 @@
 <div>
     @if ($showModal)
         <div class="fixed inset-0 z-50 flex items-center justify-center bg-opacity-30 backdrop-blur-sm backdrop-brightness-50"
-             x-data x-on:keydown.escape.window="$wire.call('closeModal')">
+            x-data x-on:keydown.escape.window="$wire.call('closeModal')">
 
             <div class="bg-white rounded-lg p-6 sm:p-8 w-full max-w-md mx-4" @click.stop>
 
@@ -19,20 +19,16 @@
                         <div>
                             <flux:label for="email">Email</flux:label>
                             <div class="mt-1">
-                                
+
                                 @if ($emailExists)
-                                    <flux:input type="email" id="email"
-                                        wire:model.lazy="email"
-                                        disabled 
+                                    <flux:input type="email" id="email" wire:model.lazy="email" disabled
                                         placeholder="you@example.com" class="w-full" />
                                     <input type="hidden" name="email" value="{{ $email }}">
                                 @else
-                                    <flux:input type="email" id="email" 
-                                        name="email"
-                                        wire:model.lazy="email"
+                                    <flux:input type="email" id="email" name="email" wire:model.lazy="email"
                                         placeholder="you@example.com" class="w-full" />
                                 @endif
-                                
+
                                 @error('email')
                                     <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                                 @enderror
@@ -43,13 +39,13 @@
                             <div x-transition.opacity.duration.500ms>
                                 <div class="flex justify-between items-center">
                                     <flux:label for="password">Password</flux:label>
-                                    <flux:link href="#" class="text-sm" variant="subtle">Forgot Password?</flux:link>
+                                    <flux:link href="#" class="text-sm" variant="subtle">Forgot Password?
+                                    </flux:link>
                                 </div>
                                 <div class="mt-1 relative">
                                     <flux:input type="{{ $showPassword ? 'text' : 'password' }}" id="password"
-                                        name="password"
-                                        wire:model.lazy="password"
-                                        placeholder="**********" class="w-full" />
+                                        name="password" wire:model.lazy="password" placeholder="**********"
+                                        class="w-full" />
                                     <div wire:click="togglePasswordVisibility"
                                         class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
                                         @if ($showPassword)
@@ -90,14 +86,13 @@
                             <div class="flex-grow border-t border-gray-200"></div>
                         </div>
 
-                        <flux:button type="button" wire:click="closeModal"
+                        <flux:button type="button"
+                            onclick="window.location.href='{{ route('social.login', 'google') }}'"
                             class="w-full flex cursor-pointer justify-center px-4 py-2.5 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-gray-200 hover:border-[#0A8048]! hover:text-[#0A8048]">
-                            <flux:link href="{{ route('social.login', 'google') }}">
-                                <div class="flex items-center gap-x-2">
+                            <div class="flex items-center gap-x-2">
                                 <flux:brand logo="{{ asset('asset/logos/google.svg') }}" class="size-2"></flux:brand>
                                 <flux:text class="">Continue with Google</flux:text>
                             </div>
-                            </flux:link>
                         </flux:button>
 
                         <div class="flex text-center justify-center">
