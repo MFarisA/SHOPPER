@@ -92,10 +92,12 @@
 
                         <flux:button type="button" wire:click="closeModal"
                             class="w-full flex cursor-pointer justify-center px-4 py-2.5 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-gray-200 hover:border-[#0A8048]! hover:text-[#0A8048]">
-                            <div class="flex items-center gap-x-2">
+                            <flux:link href="{{ route('social.login', 'google') }}">
+                                <div class="flex items-center gap-x-2">
                                 <flux:brand logo="{{ asset('asset/logos/google.svg') }}" class="size-2"></flux:brand>
                                 <flux:text class="">Continue with Google</flux:text>
                             </div>
+                            </flux:link>
                         </flux:button>
 
                         <div class="flex text-center justify-center">

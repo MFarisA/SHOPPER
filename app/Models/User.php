@@ -14,11 +14,16 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'phone_number'
+        'phone_number',
+        'provider_name',
+        'provider_id',
+        'avatar'
     ];
 
     protected $hidden = [
         'password',
+        'provider_name',
+        'provider_id',
         'remember_token',
     ];
 
