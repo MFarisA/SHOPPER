@@ -46,22 +46,16 @@ class OtpVerification extends Component
             return;
         }
 
-        // Mark email as verified
         User::where('id', $user->id)->update(['email_verified_at' => now()]);
 
-        // Delete the used OTP
         $userOtp->delete();
         
-        // Clear the form
         $this->reset('otp');
         
-        // Add success message
         session()->flash('message', 'Email berhasil diverifikasi!');
         
-        // Log for debugging
         Log::info("OTP verification successful for user: {$user->email}");
         
-        // Redirect to home
         return $this->redirect(route('home'), navigate: true);
     }
 
