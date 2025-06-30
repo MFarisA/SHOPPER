@@ -46,8 +46,9 @@
 
                     <div>
                         <flux:label for="phone_number">Phone number</flux:label>
-                        <flux:input id="phone_number" name="phone_number" type="tel" placeholder="Enter your phone number"
-                            value="{{ old('phone_number') }}" wire:model="phone_number" />
+                        <flux:input id="phone_number" name="phone_number" type="tel"
+                            placeholder="Enter your phone number" value="{{ old('phone_number') }}"
+                            wire:model="phone_number" />
                         @error('phone_number')
                             <span class="text-sm text-red-500 mt-1">{{ $message }}</span>
                         @enderror
@@ -55,40 +56,56 @@
 
                     <div>
                         <flux:label for="password">Password</flux:label>
-                        <flux:input id="password" name="password" type="password" placeholder="••••••••" 
-                                   wire:model.live="password" />
+                        <div class="relative mt-1">
+                            <input id="password" name="password" type="{{ $showPassword ? 'text' : 'password' }}"
+                                placeholder="••••••••" wire:model.live="password"
+                                class="block w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+
+                            <button type="button" wire:click='togglePasswordVisibility'
+                                class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 hover:text-gray-700">
+                                @if ($showPassword)
+                                    <x-heroicon-o-eye-slash class="size-5" />
+                                @else
+                                    <x-heroicon-o-eye class="size-5" />
+                                @endif
+                            </button>
+                        </div>
                         @error('password')
                             <span class="text-sm text-red-500 mt-1">{{ $message }}</span>
                         @enderror
-                        
-                        <!-- Password Requirements Indicator -->
+
                         <div class="mt-2 space-y-1 text-xs">
                             <div class="flex items-center space-x-2">
-                                <span class="w-4 h-4 rounded-full {{ $hasMinLength ? 'bg-green-500' : 'bg-gray-300' }} flex items-center justify-center">
+                                <span
+                                    class="w-4 h-4 rounded-full {{ $hasMinLength ? 'bg-green-500' : 'bg-gray-300' }} flex items-center justify-center">
                                     <span class="text-white text-xs">✓</span>
                                 </span>
                                 <span class="text-gray-600">At least 8 characters</span>
                             </div>
                             <div class="flex items-center space-x-2">
-                                <span class="w-4 h-4 rounded-full {{ $hasLowercase ? 'bg-green-500' : 'bg-gray-300' }} flex items-center justify-center">
+                                <span
+                                    class="w-4 h-4 rounded-full {{ $hasLowercase ? 'bg-green-500' : 'bg-gray-300' }} flex items-center justify-center">
                                     <span class="text-white text-xs">✓</span>
                                 </span>
                                 <span class="text-gray-600">One lowercase letter</span>
                             </div>
                             <div class="flex items-center space-x-2">
-                                <span class="w-4 h-4 rounded-full {{ $hasUppercase ? 'bg-green-500' : 'bg-gray-300' }} flex items-center justify-center">
+                                <span
+                                    class="w-4 h-4 rounded-full {{ $hasUppercase ? 'bg-green-500' : 'bg-gray-300' }} flex items-center justify-center">
                                     <span class="text-white text-xs">✓</span>
                                 </span>
                                 <span class="text-gray-600">One uppercase letter</span>
                             </div>
                             <div class="flex items-center space-x-2">
-                                <span class="w-4 h-4 rounded-full {{ $hasNumber ? 'bg-green-500' : 'bg-gray-300' }} flex items-center justify-center">
+                                <span
+                                    class="w-4 h-4 rounded-full {{ $hasNumber ? 'bg-green-500' : 'bg-gray-300' }} flex items-center justify-center">
                                     <span class="text-white text-xs">✓</span>
                                 </span>
                                 <span class="text-gray-600">One number</span>
                             </div>
                             <div class="flex items-center space-x-2">
-                                <span class="w-4 h-4 rounded-full {{ $hasSpecialChar ? 'bg-green-500' : 'bg-gray-300' }} flex items-center justify-center">
+                                <span
+                                    class="w-4 h-4 rounded-full {{ $hasSpecialChar ? 'bg-green-500' : 'bg-gray-300' }} flex items-center justify-center">
                                     <span class="text-white text-xs">✓</span>
                                 </span>
                                 <span class="text-gray-600">One special character (@ or !)</span>
@@ -98,8 +115,21 @@
 
                     <div>
                         <flux:label for="password_confirmation">Confirm Password</flux:label>
-                        <flux:input id="password_confirmation" name="password_confirmation" type="password"
-                            placeholder="••••••••" wire:model="password_confirmation" />
+                        <div class="relative mt-1">
+                            <input id="password_confirmation" name="password_confirmation"
+                                type="{{ $showPasswordConfirmation ? 'text' : 'password' }}" placeholder="••••••••"
+                                wire:model="password_confirmation"
+                                class="block w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+
+                            <button type="button" wire:click='togglePasswordConfirmationVisibility'
+                                class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 hover:text-gray-700">
+                                @if ($showPasswordConfirmation)
+                                    <x-heroicon-o-eye-slash class="size-5" />
+                                @else
+                                    <x-heroicon-o-eye class="size-5" />
+                                @endif
+                            </button>
+                        </div>
                     </div>
 
                     <div class="pt-2">
@@ -116,8 +146,7 @@
                     <span class="mx-4 flex-shrink text-sm text-gray-500">OR</span>
                     <div class="flex-grow border-t border-gray-300"></div>
                 </div>
-                <flux:button type="button"
-                 onclick="window.location.href='{{ route('social.login', 'google') }}'"
+                <flux:button type="button" onclick="window.location.href='{{ route('social.login', 'google') }}'"
                     class="w-full cursor-pointer flex justify-center px-4 py-2.5 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-gray-200 hover:border-[#0A8048]! hover:text-[#0A8048]">
                     <div class="flex items-center gap-x-2">
                         <flux:brand logo="{{ asset('asset/logos/google.svg') }}" class="size-2"></flux:brand>

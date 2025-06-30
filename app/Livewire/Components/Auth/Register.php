@@ -13,6 +13,8 @@ class Register extends Component
     public $email = "";
     public $password = "";
     public $password_confirmation = "";
+    public bool $showPassword = false;
+    public bool $showPasswordConfirmation = false;
 
     // Password strength indicators
     public $hasMinLength = false;
@@ -24,6 +26,16 @@ class Register extends Component
     public function updatedPassword($value)
     {
         $this->checkPasswordStrength($value);
+    }
+
+    public function togglePasswordVisibility()
+    {
+        $this->showPassword = !$this->showPassword;
+    }
+
+    public function togglePasswordConfirmationVisibility()
+    {
+        $this->showPasswordConfirmation = !$this->showPasswordConfirmation;
     }
 
     private function checkPasswordStrength($password)
