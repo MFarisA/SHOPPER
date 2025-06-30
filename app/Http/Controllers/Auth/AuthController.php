@@ -49,10 +49,10 @@ class AuthController extends Controller
             'expires_at' => now()->addMinutes(3),
         ]);
 
-        // Temporarily commented out to avoid Mailtrap rate limits during testing
-        // Mail::to($user->email)->send(new OtpVerificationMail($user, $otpCode));
+        // Send OTP verification email
+        Mail::to($user->email)->send(new OtpVerificationMail($user, $otpCode));
         
-        // For testing, you can log the OTP instead
+        // Also log for debugging
         Log::info("OTP Code for {$user->email}: {$otpCode}");
 
         Auth::login($user);

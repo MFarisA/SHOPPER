@@ -13,7 +13,7 @@ use Livewire\Component;
 #[Layout('components.layouts.auth')]
 class OtpVerification extends Component
 {
-    public string $otpCode = '';
+    public string $otp = '';
 
     public function mount()
     {
@@ -25,24 +25,24 @@ class OtpVerification extends Component
     public function verifyOtp()
     {
         $this->validate([
-            'otpCode' => 'required|numeric|digits:6',
+            'otp' => 'required|numeric|digits:6',
         ]); 
 
         $user = Auth::user();
         $userOtp = UserOtp::where('user_id', $user->id)->latest()->first();
 
         if (!$userOtp) {
-            $this->addError('otpCode', 'Kode OTP tidak ditemukan. Silakan coba lagi.');
+            $this->addError('otp', 'Kode OTP tidak ditemukan. Silakan coba lagi.');
             return;
         }
 
         if (now()->gt($userOtp->expires_at)) {
-            $this->addError('otpCode', 'Kode OTP telah kedaluwarsa. Silakan minta kode baru.');
+            $this->addError('otp', 'Kode OTP telah kedaluwarsa. Silakan minta kode baru.');
             return;
         }
 
-        if ($this->otpCode != $userOtp->otp_code) {
-            $this->addError('otpCode', 'Kode OTP yang Anda masukkan salah. Silakan coba lagi.');
+        if ($this->otp != $userOtp->otp_code) {
+            $this->addError('otp', 'Kode OTP yang Anda masukkan salah. Silakan coba lagi.');
             return;
         }
 
@@ -53,7 +53,7 @@ class OtpVerification extends Component
         $userOtp->delete();
         
         // Clear the form
-        $this->reset('otpCode');
+        $this->reset('otp');
         
         // Add success message
         session()->flash('message', 'Email berhasil diverifikasi!');
