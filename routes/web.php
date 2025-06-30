@@ -33,7 +33,7 @@ Route::post('/auth/register', [AuthController::class, 'register'])->name('auth.r
 
 Route::get('/verification-otp', OtpVerification::class)->middleware('auth')->name('verification.notice');
 
+Route::get('/item/{slug}', ShowItemProducts::class)->name('item.show');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/item/{slug}', ShowItemProducts::class)->name('item.show');
     Route::post('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 });

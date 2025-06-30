@@ -55,23 +55,7 @@
                             <x-heroicon-o-shopping-cart class="h-6 w-6" />
                         </a>
 
-                        <div x-data="{ open: false }" class="relative">
-                             <a @click="open = !open" @click.away="open = false" class="cursor-pointer">
-                                 <img src="{{ asset('asset/pluto.png') }}" class="rounded-full size-9">
-                             </a>
-                             <div x-show="open" x-transition class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
-                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profil</a>
-                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Toko</a>
-                                 <form method="POST" action="{{ route('auth.logout') }}">
-                                     @csrf
-                                     <a href="{{ route('auth.logout') }}"
-                                        onclick="event.preventDefault(); this.closest('form').submit();"
-                                        class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                         Logout
-                                     </a>
-                                 </form>
-                             </div>
-                        </div>
+                        <livewire:components.user-dropdown />
                     </div>
                 @endauth
 
@@ -81,12 +65,13 @@
                             class="px-4 py-2 font-poppins text-sm font-medium text-gray-600  border border-[#0A8048] hover:bg-[#0A8048]! hover:text-white rounded-lg cursor-pointer">
                             Login
                         </flux:button>
-                        <a href="{{ route('register') }}" class="px-4 font-poppins cursor-pointer py-2 text-sm font-medium text-white bg-[#0A8048] rounded-lg hover:bg-[#0A8048]/90">
+                        <a href="{{ route('register') }}"
+                            class="px-4 font-poppins cursor-pointer py-2 text-sm font-medium text-white bg-[#0A8048] rounded-lg hover:bg-[#0A8048]/90">
                             Register
                         </a>
                     </div>
                 @endguest
-                
+
             </div>
         </div>
     </div>

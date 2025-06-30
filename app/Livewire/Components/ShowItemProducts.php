@@ -6,7 +6,7 @@ use App\Models\Item;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-#[Layout('components.layouts.showItem')]
+#[Layout('components.layouts.app')]
 class ShowItemProducts extends Component
 {
     public $product;

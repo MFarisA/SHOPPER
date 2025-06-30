@@ -20,6 +20,7 @@
         {{ $slot }}
         <livewire:components.auth.login>
         <livewire:components.footer>
+        <livewire:components.logout-modal />
         @livewireScripts
         @stack('scripts')
         @fluxScripts
