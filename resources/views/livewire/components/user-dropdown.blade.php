@@ -47,15 +47,10 @@
     <flux:profile avatar="{{ asset('asset/pluto.png') }}" name="{{ Auth::user()->name }}" />
 
     <flux:menu>
-        <flux:menu.item href="#" icon="user-circle">Profile</flux:menu.item>
         <flux:menu.item href="#" icon="cog-8-tooth">Setting</flux:menu.item>
         <flux:menu.separator />
         <flux:menu.item href="#" icon="heart">Wish List</flux:menu.item>
         <flux:menu.item href="#" icon="banknotes">Purchase</flux:menu.item>
-        <flux:menu.separator />
-        <flux:modal.trigger name="edit-profile">
-            <flux:menu.item icon="pencil">Edit Profile</flux:menu.item>
-        </flux:modal.trigger>
         <flux:menu.separator />
         <flux:modal.trigger name="logout-confirmation">
             <flux:menu.item icon="arrow-right-start-on-rectangle" variant="danger">Logout</flux:menu.item>
