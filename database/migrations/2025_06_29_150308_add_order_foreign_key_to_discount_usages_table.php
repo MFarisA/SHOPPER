@@ -6,20 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::table('discount_usages', function (Blueprint $table) {
-            // Add foreign key constraint to orders table
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('set null');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::table('discount_usages', function (Blueprint $table) {
