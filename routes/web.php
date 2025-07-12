@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Livewire\Auth\OtpVerification;
+use App\Livewire\Cart;
 use App\Livewire\Categories;
 use App\Livewire\Components\Auth\Login;
 use App\Livewire\Components\Auth\Register;
@@ -38,5 +39,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/settings', Setting::class)->name('profile.settings');
     Route::get('/profile/wishlist', WishList::class)->name('profile.wishlist');
     Route::get('/profile/purchase', Purchase::class)->name('profile.purchase');
+    Route::get('/profile/cart', Cart::class)->name('profile.cart');
     Route::post('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 });

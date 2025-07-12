@@ -48,10 +48,24 @@
 
                 @auth
                     <div class="flex items-center gap-x-4">
-                        <a href="#" wire:navigate.prefetch class="text-gray-500 hover:text-gray-900">
-                            <x-untitledui-mail class="h-6 w-6" />
-                        </a>
-                        <a href="#" wire:navigate.prefetch class="text-gray-500 hover:text-gray-900">
+                        <flux:dropdown position="bottom" align="end">
+                            <flux:button variant="ghost" icon="envelope" size="sm" class="text-white  p-2">
+                                {{-- <x-untitledui-mail class="h-6 w-6" /> --}}
+                            </flux:button>
+
+                            <flux:menu>
+                                <flux:menu.item icon="bell">New notifications</flux:menu.item>
+                                <flux:menu.separator />
+                                <flux:menu.item icon="envelope">Messages</flux:menu.item>
+                                <flux:menu.item icon="exclamation-triangle">Alerts</flux:menu.item>
+                                <flux:menu.separator />
+                                <flux:menu.item href="#" wire:navigate icon="cog-6-tooth">Notification settings</flux:menu.item>
+                                <flux:menu.separator />
+                                <flux:menu.item icon="check">Mark all as read</flux:menu.item>
+                            </flux:menu>
+                        </flux:dropdown>
+
+                        <a href="{{ route('profile.cart') }}" wire:navigate.prefetch class="text-gray-500 hover:text-gray-900">
                             <x-heroicon-o-shopping-cart class="h-6 w-6" />
                         </a>
 
