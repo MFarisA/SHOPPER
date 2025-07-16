@@ -3,8 +3,7 @@
         {{-- Main Grid Layout --}}
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
 
-            {{-- Kolom Kiri: Sidebar Navigasi --}}
-            <aside class="md:col-span-3">
+            {{-- <aside class="md:col-span-3">
                 <nav class="space-y-1">
                     <a href="#" wire:navigate
                         class="text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md"
@@ -35,22 +34,19 @@
                         </div>
                         <span class="bg-gray-100 group-hover:bg-gray-200 text-gray-600 text-xs font-medium px-2 py-0.5 rounded-full">10</span>
                     </a>
-                    {{-- Item Aktif untuk Halaman Settings --}}
                     <a href="#" wire:navigate
                         class="bg-gray-100 text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                          <i class="fa-solid fa-gear text-gray-500 mr-3 flex-shrink-0 h-6 w-6"></i>
                         <span class="truncate">Settings</span>
                     </a>
                 </nav>
-            </aside>
+            </aside> --}}
 
-            {{-- Kolom Kanan: Konten Pengaturan --}}
             <main class="md:col-span-9">
                 <div class="mb-6">
                     <h1 class="text-2xl font-bold text-gray-900">Settings</h1>
                 </div>
 
-                {{-- Navigasi Tab --}}
                 <div class="border-b border-gray-200">
                     <nav class="-mb-px flex space-x-6" aria-label="Tabs">
                         <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">Company</a>
@@ -62,13 +58,11 @@
                     </nav>
                 </div>
 
-                {{-- Konten Profile --}}
                 <form wire:submit.prevent="save" class="mt-6">
                     <div class="bg-white p-6 shadow rounded-lg">
                         <h2 class="text-lg font-medium leading-6 text-gray-900">Profile</h2>
                         <p class="mt-1 text-sm text-gray-500">Update your photo and personal details here.</p>
 
-                        {{-- Profile Picture --}}
                         <div class="mt-6 flex items-center gap-5">
                              {{-- @if ($photo)
                                 <img class="h-16 w-16 rounded-full object-cover" src="{{ asset('asset/pluto.png') }}" alt="New Profile Picture">
@@ -89,8 +83,8 @@
                         {{-- Form Fields --}}
                         <div class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-6">
                             <div>
-                                <label for="full-name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                                <input type="text" wire:model="fullName" id="full-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                <label for="full-name" class="block text-sm font-poppins font-medium text-gray-700">Full Name</label>
+                                <flux:input type="text" wire:model="fullName" id="full-name" placeholder="xxxx"/>
                             </div>
 
                             <div>
@@ -99,7 +93,7 @@
                                     <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                         <span class="text-gray-500 sm:text-sm">grovio.xyz/</span>
                                     </div>
-                                    <input type="text" wire:model="username" id="username" class="block w-full rounded-md border-gray-300 pl-24 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="allefvinicius">
+                                    <flux:input type="text" wire:model="username" id="username" placeholder="xxxx"/>
                                 </div>
                             </div>
                             
@@ -112,23 +106,18 @@
                                           <option>US +1</option>
                                        </select>
                                     </div>
-                                    <input type="text" wire:model="phone" id="phone-number" class="block w-full rounded-md border-gray-300 pl-20 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="812 3456 7890">
-                                 </div>
+                                    <flux:input type="text" wire:model="phone" id="phone-number" placeholder="812 3456 7890"/>
+                                </div>
                             </div>
 
                              <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                                <input type="email" wire:model="email" id="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                            </div>
-
-                            <div class="sm:col-span-2">
-                                <label for="job-title" class="block text-sm font-medium text-gray-700">Job Title</label>
-                                <input type="text" wire:model="jobTitle" id="job-title" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                {{-- <input type="email" wire:model="email" id="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"> --}}
+                                <flux:input type="email" wire:model="email" id="email"/>
                             </div>
                         </div>
                     </div>
                     
-                    {{-- Form Actions --}}
                     <div class="mt-6 flex justify-end gap-x-3">
                         <button type="button" class="rounded-md bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Cancel</button>
                         <button type="submit" class="inline-flex justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
